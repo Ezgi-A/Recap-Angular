@@ -1,0 +1,26 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
+  <span class="visually-hidden"></span>
+</div>
+<table *ngIf="dataLoaded==true"class="table" class="table table-bordered">
+  <thead class="text-dark" style="background-color: #69b63cf6;">
+    <tr>
+      <th>Customer Id</th>
+      <th>User Id</th>
+      <th>Company Name</th>
+      
+    </tr>
+  </thead>
+  <tr *ngFor="let customer of customers">
+    <td>
+      {{ customer.customerId }}
+    </td>
+    <td>
+      {{ customer.userId }}
+    </td>
+    <td>
+      {{ customer.companyName }}
+    </td>
+    
+  </tr>
+</table>
+

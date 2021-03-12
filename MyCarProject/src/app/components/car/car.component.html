@@ -1,0 +1,28 @@
+
+<div *ngIf="dataLoaded==false" class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
+  <span class="visually-hidden"></span>
+</div>
+<table *ngIf="dataLoaded==true"class="table" class= "table table-bordered">
+  <thead class="text-dark" style="background-color: #818181f6;">
+    <tr>
+      <th>Car</th>
+      <th>Brand</th>
+      <th>Color</th>
+      <th>Daily Price</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let car of cars">
+    <td>
+      {{ car.carName }}
+    </td>
+    <td>
+      {{ car.brandName }}
+    </td>
+    <td>
+      {{ car.colorName }}
+    </td>
+    <td>
+      {{ car.dailyPrice }}
+    </td>
+  </tr>
+</table>

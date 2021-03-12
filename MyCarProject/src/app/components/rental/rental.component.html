@@ -1,0 +1,27 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
+  <span class="visually-hidden"></span>
+</div>
+<table *ngIf="dataLoaded==true"class="table" class="table table-bordered">
+  <thead class="text-dark" style="background-color: #69b63cf6;">
+    <tr>
+      <th>Brand Name</th>
+      <th>User Name</th>
+      <th >Rent Date</th>
+      <th >Return Date</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let rental of rentals">
+    <td>
+      {{ rental.brandName }}
+    </td>
+    <td>
+      {{ rental.userName }}
+    </td>
+    <td>
+      {{ rental.rentDate }}
+    </td>
+    <td>
+      {{ rental.returnDate }}
+    </td>
+  </tr>
+</table>

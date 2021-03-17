@@ -1,22 +1,7 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
-  <span class="visually-hidden"></span></div>
-<table *ngIf="dataLoaded==true"class="table" class= "table table-bordered">
-  <thead class="text-dark" style="background-color: #818181f6;">
-    <tr>
-      <th>Brand Id</th>
-      <th>Brand Name</th>
-     
-    </tr>
-  </thead>
-  <tr *ngFor="let brand of brands">
-    <td>
-      {{ brand.brandId }}
-    </td>
-    <td>
-      {{ brand.brandName }}
-    </td>
+<ul class="list-group">
+<li (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" routerLink="/cars/brand/{{brand.brandId}}" [class]="getCurrentBrandClass(brand)">
+  {{brand.brandName}}
+</li>
+</ul>
 
-    
-  </tr>
-</table>
 

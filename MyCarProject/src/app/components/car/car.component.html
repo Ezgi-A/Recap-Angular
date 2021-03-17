@@ -1,8 +1,8 @@
 
-<div *ngIf="dataLoaded==false" class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
+<!-- <div  class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
   <span class="visually-hidden"></span>
-</div>
-<table *ngIf="dataLoaded==true"class="table" class= "table table-bordered">
+</div> -->
+<table class="table" class= "table table-bordered">
   <thead class="text-dark" style="background-color: #818181f6;">
     <tr>
       <th>Car</th>
@@ -16,10 +16,10 @@
       {{ car.carName }}
     </td>
     <td>
-      {{ car.brandName }}
+      {{ car.brandId }}
     </td>
     <td>
-      {{ car.colorName }}
+      {{ car.colorId }}
     </td>
     <td>
       {{ car.dailyPrice }}

@@ -1,7 +1,43 @@
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search Color</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="enter a color..."
+  />
+</div>
 
-<ul class="list-group">
-  <li (click)="setCurrentColor(color)" *ngFor="let color of colors" [class]="getCurrentColorClass(color)"
-  routerLink="/cars/color/{{color.colorId}}">
-    {{color.colorName}}
+<div *ngIf="filterText" class="alert alert-success">
+  {{ filterText }} aradınız.
+</div>
+<ul class="list-group" >
+  <li [ngClass]="getAllColorClass()"
+  (click)="removeCurrentColor()"
+   aria-current="true"
+   routerLink="/cars">
+   All Colors
+
   </li>
-  </ul>
+  <li
+  *ngFor="let color of colors | filterColor: filterText"
+    (click)="setCurrentColor(color)"
+    [class]="getCurrentColorClass(color)"
+    routerLink="/cars/color/{{ color.colorId }}"
+  >
+    {{ color.colorName }}
+  </li>
+  
+</ul>
+<!-- <li [ngClass]="getAllColorClass()" routerLink="/cars">
+  <select
+    class="form-select form-select-lg mb-3"
+    aria-label=".form-select-lg example"
+  >
+    <option selected>Color Details</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</li> -->

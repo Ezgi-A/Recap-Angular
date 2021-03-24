@@ -11,6 +11,7 @@ export class ColorComponent implements OnInit {
   colors: Color[] = [];
   currentColor : Color;
   dataLoaded=false;
+  filterText="";
   
   constructor(private colorService:ColorService) { }
 
@@ -33,5 +34,18 @@ export class ColorComponent implements OnInit {
       return "list-group-item";
     }
   }
+  getAllColorClass(){
+    let newColor:Color={colorId:-1,colorName:""}
+    if(this.currentColor.colorId == newColor.colorId){ 
+      return "list-group-item active cursorPointer";
+    } else {
+      return "list-group-item cursorPointer";
+    }
+  }
+  removeCurrentColor(){
+    this.filterText="";
+    this.currentColor={colorId:-1,colorName:""};
+  }
+
 
 }

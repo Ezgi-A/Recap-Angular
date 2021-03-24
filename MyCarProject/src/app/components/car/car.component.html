@@ -2,6 +2,37 @@
 <!-- <div  class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
   <span class="visually-hidden"></span>
 </div> -->
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search Car</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="enter a car...">
+</div>
+
+  <div *ngIf="filterText" class="alert alert-success">
+                {{filterText}} aradınız.
+ </div> 
+ <div class="row mb-4">
+  <div class="col-md-4">
+    <select  [(ngModel)]="filterBrand" class="form-select" aria-label="Default select example" >
+      <option>Select Brand</option>
+        <option *ngFor="let brand of brands"  [value]="brand.brandId"  >{{brand.brandName}}</option>
+        
+      </select>
+  </div>
+ 
+  <div class="col-md-4">
+    <select  [(ngModel)]="filterColor" class="form-select" aria-label="Default select example">
+        <option selected>Select Color</option>
+        <option  *ngFor="let color of colors"  [value]="color.colorId" >{{color.colorName}}</option>
+        
+      </select>
+  </div>
+  <div class="col-md-4">
+      <button routerLink="/cars/getbybrandandcolor/{{filterBrand}}/{{filterColor}}" class="btn btn-warning " style="margin-right: 10px;">Filter</button>
+      <button routerLink="/cars" class="btn btn-danger">Clear</button>
+  </div>
+   
+</div>
 <table class="table" class= "table table-bordered">
   <thead class="text-dark" style="background-color: #818181f6;">
     <tr>
@@ -9,9 +40,11 @@
       <th>Brand</th>
       <th>Color</th>
       <th>Daily Price</th>
+      
+      
     </tr>
   </thead>
-  <tr *ngFor="let car of cars">
+  <tr *ngFor="let car of cars |filterCar:filterText">
     <td>
       {{ car.carName }}
     </td>
@@ -24,5 +57,9 @@
     <td>
       {{ car.dailyPrice }}
     </td>
+    
+    
   </tr>
 </table>
+<!-- (click)="getBrands(carId)"
+(click)="getColors(carId)" -->

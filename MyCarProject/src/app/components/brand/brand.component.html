@@ -1,7 +1,49 @@
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Search Brand</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="enter a brand..."
+  />
+</div>
+
+<div *ngIf="filterText" class="alert alert-success">
+  {{ filterText }} aradınız.
+</div>
+
+<!-- <select class="custom-select custom-select-md mb-3" id="inlineFormCustomSelect" style="width: 250px;">
+  <option
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{brand.brandId}}"
+    *ngFor="let brand of brands | filterBrand:filterText"
+    [class]="getCurrentBrandClass(brand)"
+  >
+  {{ brand.brandName }}
+  </option>
+  <option [class]="getAllBrandClass()" routerLink="/cars">View All </option>
+</select> -->
+
+
 <ul class="list-group">
-<li (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" routerLink="/cars/brand/{{brand.brandId}}" [class]="getCurrentBrandClass(brand)">
-  {{brand.brandName}}
-</li>
+   <li [ngClass]="getAllBrandClass()"
+   (click)="removeCurrentBrand()"
+    aria-current="true"
+    routerLink="/cars">
+    All Brands
+
+   </li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    *ngFor="let brand of brands | filterBrand: filterText"
+    routerLink="/cars/brand/{{ brand.brandId }}"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    {{ brand.brandName }}
+  </li>
+  
 </ul>
 
+   
 

@@ -1,46 +1,25 @@
 
 
-<!-- <div  class="spinner-border text-light" role="status"  style="background-color: #69b63cf6;">
-    <span class="visually-hidden"></span>
-  </div> -->
+<div *ngFor="let car of cars"> class="car-header">
+    Araba Detayları
 
-  <!-- <div class="row">
-    <div
-      class="card col-md-3 mb-3 mx-3 pt-3 px-3"
-      style="width: 18rem"
-      *ngFor="let car of cars"
-    >
-      <img
-        class="card-img-top"
-        src="../../../assets/default.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h2 class="card-title">{{ car.brandName }}</h2>
-        <p class="card-text"><b>Color: </b>{{ car.colorName }}</p>
-        
-        <p class="card-text"><b>Daily Price: </b>{{ car.dailyPrice }}</p>
-        
-        
-        <div class="row">
-          <div class="col-md-8"></div>
-          <div class="col-md-2">
-            <button mat-icon-button>
-              <mat-icon color="primary" class="mat-18">save</mat-icon>
-            </button>
-          </div>
-          <div class="col-md-2">
-            <button color="warn" mat-icon-button>
-              <mat-icon class="mat-18">close</mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   
+    
+         <!-- <img
+         src="https://localhost:44391/carimages/{{car.imagePath}}" alt="asdasd">  -->
+     
+
+  <ul class="list-group">
+   
+    <li class="list-group-item">Markası : {{car.brandName}} </li>
+    <li class="list-group-item">Rengi : {{car.colorName}} </li>
+    
+    <li class="list-group-item">Günlük Ücreti : {{car.dailyPrice}} TL</li>
+    
+  </ul> 
   
-  <table class="table"  class= "table table-bordered">
+</div>   
+  <!-- <table class="table"  class= "table table-bordered">
     <thead class="text-dark" style="background-color: #818181f6;">
       <tr>
         <th>CarName</th>
@@ -50,7 +29,7 @@
       </tr>
     </thead>
     <img
-    src="../../../assets/default.jpg"  class="card-img-top" alt="Card image cap "
+    src=""  class="card-img-top" alt="Card image cap "
    />
     <tr  *ngFor="let car of cars">
        
@@ -67,4 +46,4 @@
         {{ car.dailyPrice }}
       </td>
     </tr>
-  </table>
+  </table> --> 

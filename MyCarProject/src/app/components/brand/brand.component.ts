@@ -12,13 +12,14 @@ export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand:Brand;
   dataLoaded=false;
+  filterText="";
   constructor(private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.getBrands();
   }
   getBrands(){
-this.brandService.getCars().subscribe((response)=> 
+this.brandService.getBrands().subscribe((response)=> 
 {this.brands=response.data
 this.dataLoaded=true})
   }
@@ -33,6 +34,31 @@ this.dataLoaded=true})
       return "list-group-item"
     }
 
+  }
+  getAllBrandClass(){
+    let newBrand:Brand={brandId:-1,brandName:""}
+    if(this.currentBrand.brandId == newBrand.brandId){ 
+      return "list-group-item active cursorPointer";
+    } else {
+      return "list-group-item cursorPointer";
+    }
+    
+  }
+  // getAllBrandClass()
+  // {
+  //   if(!this.currentBrand)
+  //   {
+  //     return "selected";
+  //   }
+  //   else{
+  //     return " ";
+  //   }
+  // }
+
+    
+  removeCurrentBrand(){
+    this.filterText="";
+    this.currentBrand={brandId:-1,brandName:""};
   }
 
 }

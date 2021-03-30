@@ -35,16 +35,20 @@ export class ColorComponent implements OnInit {
     }
   }
   getAllColorClass(){
-    let newColor:Color={colorId:-1,colorName:""}
-    if(this.currentColor.colorId == newColor.colorId){ 
-      return "list-group-item active cursorPointer";
-    } else {
-      return "list-group-item cursorPointer";
-    }
+    
+    if(!this.currentColor){ 
+      return "list-group-item active";
+    
+  }
+  else{
+    return "list-group-item";
+  }
+ 
   }
   removeCurrentColor(){
     this.filterText="";
     this.currentColor={colorId:-1,colorName:""};
+    return "list group-item";
   }
 
 

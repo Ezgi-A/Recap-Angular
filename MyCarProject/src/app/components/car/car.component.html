@@ -3,63 +3,93 @@
   <span class="visually-hidden"></span>
 </div> -->
 
+ 
+ <div class="row">
+  <div class="col-md-5">
+    <label class="mr-sm-2" for="inlineFormCustomSelect"> Brands </label>
+    <select class="custom-select custom-select-md mb-3" [(ngModel)]="brandId" aria-placeholder="All Brands">
+      <option selected>All Brands</option>
+      <option
+      [selected]="getSelectedBrandId(brand.brandId)"
+      *ngFor="let brand of brands"
+      [value]="brand.brandId"
+     
+      >
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-5">
+    <label class="mr-sm-2" for="inlineFormCustomSelect"> Colors </label>
+    <select class="custom-select custom-select-md mb-3" [(ngModel)]="colorId" aria-placeholder="All Colors">
+      <option
+      [selected]="getSelectedColorId(color.colorId)" 
+        *ngFor="let color of colors"
+        [value]="color.colorId"
+        
+      >
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-2" style="margin-top: 30px; width: 100px">
+    
+    <button
+      class="btn btn-success"
+      routerLink="/cars/filter/{{brandId}}/{{colorId}}"
+    >
+      Filter
+    </button>
+    <button class="btn btn-danger"
+    routerLink="/cars"
+    >
+    Clear
+
+    </button>
+  </div>
+ 
+   
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Search Car</label>
+  <label for="filterText" class="form-label">Search Car</label>
   <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="enter a car...">
 </div>
 
   <div *ngIf="filterText" class="alert alert-success">
                 {{filterText}} aradınız.
- </div> 
- <div class="row mb-4">
-  <div class="col-md-4">
-    <select  [(ngModel)]="filterBrand" class="form-select" aria-label="Default select example" >
-      <option>Select Brand</option>
-        <option *ngFor="let brand of brands"  [value]="brand.brandId"  >{{brand.brandName}}</option>
-        
-      </select>
-  </div>
- 
-  <div class="col-md-4">
-    <select  [(ngModel)]="filterColor" class="form-select" aria-label="Default select example">
-        <option selected>Select Color</option>
-        <option  *ngFor="let color of colors"  [value]="color.colorId" >{{color.colorName}}</option>
-        
-      </select>
-  </div>
-  <div class="col-md-4">
-      <button routerLink="/cars/getbybrandandcolor/{{filterBrand}}/{{filterColor}}" class="btn btn-warning " style="margin-right: 10px;">Filter</button>
-      <button routerLink="/cars" class="btn btn-danger">Clear</button>
-  </div>
-   
-</div>
+ </div>
 <table class="table" class= "table table-bordered">
   <thead class="text-dark" style="background-color: #818181f6;">
     <tr>
       <th>Car</th>
-      <th>Brand</th>
-      <th>Color</th>
-      <th>Daily Price</th>
+      <th>BrandName</th>
+      <th>ColorName</th>
+      <th>CarName</th>
+      <th>ModelYear</th>
+      <th>DailyPrice</th>
+      <th></th>
       
       
     </tr>
   </thead>
-  <tr *ngFor="let car of cars |filterCar:filterText">
+  <tr *ngFor="let car of cardetails |filterCar:filterText">
+    <td>{{ car.carId }}</td>
+    <td>{{ car.brandName }}</td>
+    <td>{{ car.colorName }}</td>
+    <td>{{ car.carName }}</td>
+    <td>{{ car.modelYear }}</td>
+    <td>{{ car.dailyPrice | currency }}</td>
+    <!-- <td>{{ car.isAvailable }}</td> -->
     <td>
-      {{ car.carName }}
-    </td>
-    <td>
-      {{ car.brandId }}
-    </td>
-    <td>
-      {{ car.colorId }}
-    </td>
-    <td>
-      {{ car.dailyPrice }}
+      <button
+        routerLink="/cardetails/{{ car.carId }}"
+        type="button"
+        class="btn btn-xs btn-primary"
+        (click)="getCarDetailByCarId(car.carId)"
+      >
+        Wiev Detail
+      </button>
     </td>
     
     
   </tr>
 </table>
-<!-- (click)="getBrands(carId)"
-(click)="getColors(carId)" -->

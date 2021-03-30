@@ -4,5 +4,5 @@ export interface Rental{
     rentDate:Date;
     returnDate:Date;
     price:number;
-    customerID:number;
+    customerId:number;
 }

@@ -1,33 +1,15 @@
-<button
-  type="button"
-  class="btn btn-primary"
-  data-toggle="modal"
-  data-target="#exampleModal"
-  style="margin-left: 10px"
->
-  Go to Payment
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Payment Page
 </button>
 
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Payment</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="form-row">
@@ -45,7 +27,7 @@
             <label for="expiration_date">Expiration Date</label>
             <input
               [(ngModel)] = "expirationDate"
-              type="text"
+              type="date"
               class="form-control"
               id="expiration_date"
               required
@@ -61,14 +43,12 @@
               required
             />
           </div>
-        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
-          Cancel
-        </button>
-        <button type="button" class="btn btn-success" (click)="addPayment()">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="addPayment()">Approve Payment</button>
       </div>
     </div>
   </div>
 </div>
+

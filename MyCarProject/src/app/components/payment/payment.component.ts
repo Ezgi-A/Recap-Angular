@@ -15,7 +15,7 @@ export class PaymentComponent implements OnInit {
   expirationDate:Date;
   securityCode:string;
 
-  @Input() rentForPayment:Rental;
+  @Input() paymentForRental:Rental;
   constructor(private rentalService:RentalService,
     private paymentService:PaymentService,
     private toastrService:ToastrService) { }
@@ -23,19 +23,20 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
   }
   addPayment(){
-    let rent:Rental=this.rentForPayment;
+    let rent:Rental=this.paymentForRental;
     let payment:Payment={
       creditCardNumber:this.creditCardNumber,
       expirationDate:this.expirationDate,
       securityCode:this.securityCode,
-      price:this.rentForPayment.price,
-      customerID:this.rentForPayment.customerID
+      price:this.paymentForRental.price,
+      customerId:this.paymentForRental.customerId
 
     }
     this.paymentService.addPayment(payment).subscribe((response)=>{
       this.toastrService.success("Ödemeniz alındı");
 
     })
+    //HATA KODU EKLE!!!!!!
     this.rentalService.addRentals(rent).subscribe((response)=> {
       this.toastrService.success("Kiralama başarılı.");
     })

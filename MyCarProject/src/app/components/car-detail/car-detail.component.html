@@ -1,0 +1,42 @@
+
+
+<div class="row image-section">
+  <div *ngFor="let carImage of carImages">
+    <img [src]="getImagePath(carImage.imagePath)" class="img-fluid" [alt]="getImagePath(carImage.imagePath)">
+
+  </div>
+</div>
+
+
+ <ul *ngIf="cardetail" class="list-group list-group-flush">
+  <li class="list-group-item">Brand Name: {{ cardetail.brandName }}</li>
+  <li class="list-group-item">Color Name: {{ cardetail.colorName }}</li>
+  <li class="list-group-item">Model Year: {{ cardetail.modelYear }}</li>
+  <li class="list-group-item">Daily Price: {{ cardetail.dailyPrice }}</li>
+  <!-- <li class="list-group-item">Is Rented: {{ cardetail.isAvailable }}</li> -->
+</ul>
+
+<div class="btn-goback" style="margin-bottom: 30px">
+  <button
+    type="button"
+    class="btn btn-xs btn-success"
+    style="width: 100px; margin-right: 10px"
+    (click) = "checkStatus(cardetail.isAvailable)"
+  >
+    Rent
+  </button>
+  <button
+    routerLink="/cars"
+    type="button"
+    class="btn btn-xs btn-primary"
+    style="width: 100px; margin-right: 10px;"
+  >
+    Go Back
+  </button>
+  <!-- <app-car-update [carAvailable]="cardetail"></app-car-update> -->
+</div>
+<div class="d-grid gap-2 mb-2" *ngIf="isAvailable == false">
+  <app-rental  [carAvailable]="cardetail"></app-rental>
+</div>
+   
+ 

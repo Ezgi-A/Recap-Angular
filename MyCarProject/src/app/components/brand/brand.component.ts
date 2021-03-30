@@ -36,29 +36,29 @@ this.dataLoaded=true})
 
   }
   getAllBrandClass(){
-    let newBrand:Brand={brandId:-1,brandName:""}
-    if(this.currentBrand.brandId == newBrand.brandId){ 
-      return "list-group-item active cursorPointer";
-    } else {
-      return "list-group-item cursorPointer";
-    }
+    
+    if(!this.currentBrand){ 
+      return "list-group-item active";
     
   }
-  // getAllBrandClass()
-  // {
-  //   if(!this.currentBrand)
-  //   {
-  //     return "selected";
+  else{
+    return "list-group-item";
+  }
+ 
+  }
+  // removeCurrentBrand(){
+  //   if(this.currentBrand){
+  //     this.filterText="";
+  //     this.currentBrand={brandId:-1,brandName:""}
+  //     return "list-group-item active";
+
   //   }
   //   else{
-  //     return " ";
+  //     return "list-group-item active";
   //   }
-  // }
-
+   
     
-  removeCurrentBrand(){
-    this.filterText="";
-    this.currentBrand={brandId:-1,brandName:""};
-  }
+
+  // }
 
 }

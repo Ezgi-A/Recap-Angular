@@ -12,7 +12,7 @@ import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
-import { CarDetailComponent } from './components/car/car/details/car-detail/car-detail.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { FilterColorPipe } from './pipes/filter-color.pipe';
 import { FilterBrandPipe } from './pipes/filter-brand.pipe';
 import { FilterCarPipe } from './pipes/filter-car.pipe';

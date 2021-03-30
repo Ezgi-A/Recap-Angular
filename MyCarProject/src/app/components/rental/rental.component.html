@@ -1,32 +1,3 @@
-<!-- <div *ngIf="dataLoaded==false" class="spinner-border text-light" role="status" style="background-color: #69b63cf6;">
-  <span class="visually-hidden"></span>
-</div>
-<table *ngIf="dataLoaded==true"class="table" class="table table-bordered">
-  <thead class="text-dark" style="background-color: #69b63cf6;">
-    <tr>
-      <th>Brand Name</th>
-      <th>User Name</th>
-      <th >Rent Date</th>
-      <th >Return Date</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let rental of rentals">
-    <td>
-      {{ rental.brandName }}
-    </td>
-    <td>
-      {{ rental.userName }}
-    </td>
-    <td>
-      {{ rental.rentDate }}
-    </td>
-    <td>
-      {{ rental.returnDate }}
-    </td>
-  </tr>
-</table> -->
-<!-- [value]="cusid" -->
-
 <div class="diveder" style="border: 1px solid grey;  margin-top: 100px;"></div>
 
 <div class="col-md-12" style="margin-bottom: 100px; margin-top: 50px;">
@@ -57,23 +28,23 @@
     <label for="select_customer">
       Please select customer</label
     >
-    <!-- <select
+    <select
       id="select_customer"
       class="custom-select"
       [(ngModel)]="customerId"
       aria-placeholder="All Customers"
       type="number"
     >
-      <option *ngFor="let customer of customers" type="number" >
-        {{customer.firstName}}
+      <option *ngFor="let customerdetail of customerdetails" type="number" [value]="customerdetail.customerId">
+        {{customerdetail.firstName}}
       </option>
-    </select> -->
-  </div>
+    </select>
+  </div> 
   <div class="form-row" style="margin-top: 20px;">
     <span> <span class="badge badge-warning">Warning</span> Please confirm your registration before payment.</span>
-  </div>
+  </div> 
   <div class="form-row" style="float: right; margin-top: 20px;">
     <button type="button" class="btn btn-success" (click)="createRent()" >Confirm Rent</button>
-    <app-payment *ngIf="isRented" [rentForPayment]="rental"></app-payment>
+    <app-payment *ngIf="isAvailable" [paymentForRental]="rental"></app-payment>
   </div>
 </div>

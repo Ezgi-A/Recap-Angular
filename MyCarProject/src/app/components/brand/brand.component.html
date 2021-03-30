@@ -25,12 +25,10 @@
   <option [class]="getAllBrandClass()" routerLink="/cars">View All </option>
 </select> -->
 
-
+<!-- (click)="removeCurrentBrand()" -->
 <ul class="list-group">
-   <li [ngClass]="getAllBrandClass()"
-   (click)="removeCurrentBrand()"
-    aria-current="true"
-    routerLink="/cars">
+   <li [class]="getAllBrandClass()"
+           routerLink="/cars">
     All Brands
 
    </li>

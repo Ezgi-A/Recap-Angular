@@ -24,7 +24,9 @@
     (click) = "checkStatus(cardetail.isAvailable)"
   >
     Rent
+
   </button>
+  
   <button
     routerLink="/cars"
     type="button"
@@ -35,8 +37,30 @@
   </button>
   
 </div>
+<div *ngIf="cardetail">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Update Car
+    
+  </button>
+  <app-car-update [carUpdate]="cardetail" >
+  </app-car-update>
+
+</div>
+<!-- <div>
+  
+  
+  
+  
+  
+<!-- </div> -->
 <div class="d-grid gap-2 mb-2" *ngIf="isAvailable == false">
   <app-rental  [carAvailable]="cardetail"></app-rental>
+  
 </div>
-   
+  
+  
+
+
+
+
  

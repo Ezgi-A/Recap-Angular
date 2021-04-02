@@ -30,8 +30,9 @@ isAvailable:boolean = false;
     private customerService:CustomerService) { }
 
   ngOnInit(): void {
-    this.getRentalDetails();
-    this.getCustomersDetail();
+    this.get();
+    // this.getRentalDetails();
+    // this.getCustomersDetail();
   }
   getRentals(){
     this.RentalService.getRentals().subscribe((response)=>
@@ -45,6 +46,9 @@ isAvailable:boolean = false;
     {
       this.rentaldetails=response.data;
     })
+  }
+  get(){
+    console.log(this.carAvailable,"aaa");
   }
 
   getCustomersDetail(){

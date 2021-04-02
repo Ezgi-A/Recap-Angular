@@ -1,0 +1,175 @@
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Update Car
+  </button> -->
+  
+  <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="carUpdateForm">
+                
+                <label for="carName"> Car Name</label>
+                <div class="form-group">
+                    <input type="text" id="carName" formControlName="carName" class="form-control"
+                        placeholder="{{carUpdate.carName}}" />
+                </div>
+                <label for="brandSelect">Select Brand</label>
+                <div class="form-group">
+                    <select formControlName="brandId" class="form-control" id="brandSelect">
+                        <option selected>{{carUpdate.brandName}}</option>
+                        <option *ngFor="let brand of brands" [value]="brand.brandId">
+                            {{ brand.brandName }}
+                        </option>
+                    </select>
+                </div>
+                <label for="colorSelect">Select Color</label>
+                <div class="form-group">
+                    <select formControlName="colorId" class="form-control" id="colorSelect">
+                        <option *ngFor="let color of colors" [value]="color.colorId">
+                            {{ color.colorName }}
+                        </option>
+                    </select>
+                </div>
+                <label for="modelYear">Model Year</label>
+                <div class="form-group">
+                    <input type="number" id="modelYear" formControlName="modelYear" class="form-control"
+                        placeholder="{{carUpdate.modelYear}}" />
+                </div>
+                <label for="dailyPrice">Daily Price</label>
+                <div class="form-group">
+                    <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"
+                        placeholder="{{carUpdate.dailyPrice}}" />
+                </div>
+                <label for="description">Description</label>
+                <div class="form-group">
+                    <input type="text" id="description" formControlName="description" class="form-control"
+                        placeholder="{{carUpdate.description}}" />
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="update()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!-- <div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title"> Update Car</h5></div>
+                <div class="card-body">
+                    <form [formGroup]="carUpdateForm">
+                        <div class="mb-3">
+                            <label for="carName">Car Name</label>
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                id="carName"
+                                formControlName="carName"
+                                class="form-control"
+                                placeholder="{{carUpdate.carName}}"
+                              />
+                            </div>
+                        </div> -->
+<!-- <div class="mb-3">
+                            <label for="brandId">Brand Id</label>
+                            <div class="form-group">
+                              <input
+                                type="number"
+                                id="brandId"
+                                formControlName="brandId"
+                                class="form-control"
+                                placeholder="Brand Id"
+                              />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="colorId">Color Id</label>
+                            <div class="form-group">
+                              <input
+                                type="number"
+                                id="colorId"
+                                formControlName="colorId"
+                                class="form-control"
+                                placeholder="colorId"
+                              />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelYear">Model Year</label>
+                            <div class="form-group">
+                              <input
+                                type="number"
+                                id="modelYear"
+                                formControlName="modelYear"
+                                class="form-control"
+                                placeholder="modelYear"
+                              />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dailyPrice">Daily Price</label>
+                            <div class="form-group">
+                              <input
+                                type="number"
+                                id="dailyPrice"
+                                formControlName="dailyPrice"
+                                class="form-control"
+                                placeholder="dailyPrice"
+                              />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description">Description</label>
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                id="description"
+                                formControlName="description"
+                                class="form-control"
+                                placeholder="description"
+                              />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="isAvailable">Availability</label>
+                            <div class="form-group">
+                              <input
+                                type="boolean"
+                                id="isAvailable"
+                                formControlName="isAvailable"
+                                class="form-control"
+                                placeholder="true or false"
+                              />
+                            </div>
+                        </div> -->
+
+
+<!-- </form>
+    
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary" (click)="update()"> 
+                        Add
+          
+                    </button>
+           
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+ -->

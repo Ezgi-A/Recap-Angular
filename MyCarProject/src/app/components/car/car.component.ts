@@ -1,4 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
@@ -16,8 +16,8 @@ import { ColorService } from 'src/app/services/color.service';
   styleUrls: ['./car.component.css'],
 })
 export class CarComponent implements OnInit {
-  cars:Car[];
-  cardetails: CarDetail[];
+  cars:Car[]=[];
+  cardetails: CarDetail[]=[];
   brands:Brand[]=[];
   colors:Color[]=[];
   dataLoaded=false;
@@ -89,6 +89,7 @@ export class CarComponent implements OnInit {
     getCarsDetails() {
       this.carService.getCarsDetails().subscribe((response) => {
         this.cardetails= response.data;
+        console.log(this.cardetails);
       });
     }
     getCarsByBrand(brandId:number){

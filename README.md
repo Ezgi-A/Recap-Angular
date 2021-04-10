@@ -25,4 +25,5 @@ Angular projesi, backend tarafında localhost:4200 de çalışacak şekilde ayar
 ![arabadetay2](https://user-images.githubusercontent.com/77544242/114272576-6a1ed000-9a1f-11eb-8672-7ce03bd84fcb.PNG)
 ![Ödeme](https://user-images.githubusercontent.com/77544242/114272666-b9650080-9a1f-11eb-8a30-22f0038aa114.PNG)
 ![sign ekran](https://user-images.githubusercontent.com/77544242/114272809-4f992680-9a20-11eb-9c57-be2a6a2263f9.PNG)
+![update](https://user-images.githubusercontent.com/77544242/114272847-6dff2200-9a20-11eb-9e42-e7df5188a6d4.PNG)
 

@@ -66,6 +66,7 @@
       <th>CarName</th>
       <th>ModelYear</th>
       <th>DailyPrice</th>
+      <th>MinimumFindex</th>
       <th></th>
       
       
@@ -79,15 +80,15 @@
     <td>{{ car.carName }}</td>
     <td>{{ car.modelYear }}</td>
     <td>{{ car.dailyPrice | currency }}</td>
-    <!-- <td>{{ car.isAvailable }}</td> -->
+    <td>{{ car.minimumFindex }}</td>
     <td>
       <button
         routerLink="/cardetails/{{ car.carId }}"
         type="button"
-        class="btn btn-xs btn-primary"
+        class="btn btn-info"
         (click)="getCarDetailByCarId(car.carId)"
       >
-        Wiev Detail
+      Wiev Detail
       </button>
     </td>
     

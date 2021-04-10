@@ -1,10 +1,12 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+ <div class="form-row" style="float: right; margin: 20px 20px 20px 20px; "> 
+<button type="button" class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Payment Page
 </button>
+</div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,6 +17,7 @@
         <div class="form-row">
           <label for="credit_card">Credit Card Number</label>
           <input
+          
             [(ngModel)] = "creditCardNumber"
             type="text"
             class="form-control"
@@ -44,10 +47,39 @@
             />
           </div>
       </div>
+      
+      <div class="modal-body">Kartınızın kaydedilmesini ister misiniz?</div>
+      
       <div class="modal-footer">
+
+        <button (click)="save()" type="button" class="btn btn-success">Save Card</button>
+      </div>
+      <div  class="mb-3" style="width: 12rem;">
+        <div *ngIf="creditCards" class="form-row" style="width: 50%;">
+          <label for="creditcards">Kartlarım</label>
+          <select
+            id="select_card"
+            class="custom-select"
+            [(ngModel)]="creditCardId"
+            aria-placeholder="All Cards"
+            type="number"
+          >
+            <option  [selected]="getSelectedCardId(creditCard.creditCardId)" *ngFor="let creditCard of creditCards" type="number" [value]="creditCard.creditCardId">
+              {{creditCard.creditCardNumber}}
+            </option>
+            
+          </select>
+        </div> 
+      </div>
+    
+      <div class="modal-footer">
+        
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary" (click)="addPayment()">Approve Payment</button>
+     
       </div>
+   
+    </div>
     </div>
   </div>
 </div>

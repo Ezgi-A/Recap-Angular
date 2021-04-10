@@ -22,4 +22,9 @@ apiUrl="https://localhost:44391/api/customers/";
     let newPath=this.apiUrl+"getcustomersdetail";
     return this.httpClient.get<ListResponseModel<CustomerDetail>>(newPath)
   }
+  getCustomerDetailById(customerId:number):Observable<ListResponseModel<CustomerDetail>>{
+    let newPath=this.apiUrl+"getbyid";
+    return this.httpClient.get<ListResponseModel<CustomerDetail>>(newPath)
+
+  }
 }

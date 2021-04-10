@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders} from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
@@ -14,6 +14,7 @@ import { ResponseModel } from '../models/responseModel';
 export class CarService {
 
   constructor(private httpClient: HttpClient) { }
+ 
   apiUrl = "https://localhost:44391/api/";
 
   getCars() : Observable<ListResponseModel<Car>>{

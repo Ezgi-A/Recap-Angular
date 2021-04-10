@@ -7,5 +7,6 @@ export interface Car {
   dailyPrice: number;
   description:string;
   isAvailable:boolean;
+  minimumFindex?:number;
   
 }

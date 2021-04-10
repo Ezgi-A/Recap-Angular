@@ -1,7 +1,6 @@
 export interface Payment{
     paymentId?:number;
-    creditCardId?:number;
-    customerId:number;
+    customerID:number;
     creditCardNumber:string;
     price?:number;
     expirationDate:Date;

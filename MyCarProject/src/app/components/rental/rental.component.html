@@ -35,16 +35,19 @@
       aria-placeholder="All Customers"
       type="number"
     >
-      <option *ngFor="let customerdetail of customerdetails" type="number" [value]="customerdetail.customerId">
+      <option  *ngFor="let customerdetail of customerdetails" type="number" [value]="customerdetail.customerId">
         {{customerdetail.firstName}}
       </option>
+      
     </select>
   </div> 
   <div class="form-row" style="margin-top: 20px;">
     <span> <span class="badge badge-warning">Warning</span> Please confirm your registration before payment.</span>
   </div> 
-  <div class="form-row" style="float: right; margin-top: 20px;">
+  <div class="form-row" style="float: right; margin: 20px 20px 20px 20px;">
+    
     <button type="button" class="btn btn-success" (click)="createRent()" >Confirm Rent</button>
-    <app-payment *ngIf="isAvailable" [paymentForRental]="rental"></app-payment>
   </div>
-</div>
+    <app-payment *ngIf="rental" [paymentForRental]="rental"></app-payment>
+  
+  </div>

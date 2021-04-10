@@ -9,4 +9,5 @@ export interface CarDetail{
     brandId:number;
     colorId:number;
     isAvailable:boolean;
+    minimumFindex?:number;
 }

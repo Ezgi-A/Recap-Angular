@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -24,6 +24,12 @@ import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { UpdateForUserComponent } from './components/update-for-user/update-for-user.component';
+
+
 
 
 @NgModule({
@@ -46,6 +52,11 @@ import { BrandUpdateComponent } from './components/brand-update/brand-update.com
     CarUpdateComponent,
     ColorUpdateComponent,
     BrandUpdateComponent,
+    LoginComponent,
+    RegisterComponent,
+    UpdateForUserComponent,
+   
+    
     
   ],
   imports: [BrowserModule, 
@@ -58,7 +69,8 @@ import { BrandUpdateComponent } from './components/brand-update/brand-update.com
     positionClass:"toast-bottom-right"
   })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi :true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

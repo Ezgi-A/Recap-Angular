@@ -18,4 +18,5 @@ Visual Studio'da .NET Core projesinde geliştirdiğim backend kodlarını Visual
 
 Angular projesi, backend tarafında localhost:4200 de çalışacak şekilde ayarlanmıştır. Yukarda belirttiğim fonksiyonlar halihazırda projede mevcuttur. 
 
-
+images-from-project
+![Sign in](https://user-images.githubusercontent.com/77544242/114272405-b74e7200-9a1e-11eb-872c-231e33d3e4eb.PNG)
